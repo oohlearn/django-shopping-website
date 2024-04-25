@@ -1,0 +1,42 @@
+{% extends "core/base.html"%} {% block title%}Items{% endblock%} {% block content%}
+<div class="pb-6 grid grid-cols-4 gap-4 bg-gray-100">
+  <div class="col-span-1">
+    <form action="{% url "item:items" %}" method="get">
+      <input type="text" name="query" class="w-full py-4 px-6 border rounded-xl" value="{{query}}" placeholder="find something...">
+      <button type="submit" class="mt-2 py-4 px-8 bg-teal-500 text-white rounded-xl">Search</button>
+    </form>
+    <hr class="my-6">
+    <p class="font-semibold">Categories</p>
+    <ul>
+      {% for category in categories %}
+       <li class="py-2 px-2 rounded-xl {% if category.id == category_id%} bg-purple-300 {%endif%}">
+        <a href="{%url 'item:items'%}?query={{query}}&category_id={{category.id}}">{{category.name}}</a>
+       </li>
+       {%endfor %}
+    </ul>
+    <hr class="my-6">
+    <p class="font-semibold">Clear filter</p>
+    <ul>
+      <li><a href="{%url "item:items"%}" class="mt-2 py-4 px-8 inline-block bg-yellow-500 text-lg rounded-xl text-white">Clear </a></li>
+    </ul>
+  </div>
+  <div class="col-span-3">
+    <div class="grid grid-cols-3 gap-3">
+      {% for item in items %}
+      <div>
+        <a href="{% url 'item:detail' item.id %}">
+          <!-- 1.url等同url_for 2.item:detail path名稱  3. item.id 要傳入的變數 -->
+          <div>
+            <img src="{{ item.image.url}}" class="rounded-t-xl object-cover" alt="" />
+          </div>
+          <div class="p-6 bg-white rounded-t-xl">
+            <h2 class="text-2xl">{{item.name}}</h2>
+            <p class="text-gray-500">Price: {{item.price}}</p>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}
