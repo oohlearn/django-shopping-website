@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Conversation, ConversationMessage
+from .models import ConversationMessage
 
 
 class ConversationMessageForm(forms.ModelForm):
@@ -9,5 +9,5 @@ class ConversationMessageForm(forms.ModelForm):
         fields = ('content',)
         widgets = {
             'content': forms.Textarea(attrs={
-                'class': 'w-full py-4 px-6 rounded-xl border',
+                'class': 'w-full py-4 px-6 rounded-xl border'
             })}

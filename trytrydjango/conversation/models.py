@@ -9,7 +9,7 @@ class Conversation(models.Model):
                              on_delete=models.CASCADE)
     members = models.ManyToManyField(User, related_name="conversations")
     created_at = models.DateTimeField(auto_now_add=True)
-    modefied_at = models.DateTimeField(auto_now=True)
+    modified_at = models.DateTimeField(auto_now=True)
 
 
 class ConversationMessage(models.Model):
