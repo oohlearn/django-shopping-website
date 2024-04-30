@@ -33,7 +33,7 @@ LOGOUT_REDIRECT_URL = "/"
 
 
 # Application definition
-
+# 稱呼components會更容易瞭解，零件的概念
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -74,11 +74,11 @@ TEMPLATES = [
         },
     },
 ]
-
+# 跟server相關
 WSGI_APPLICATION = 'trytrydjango.wsgi.application'
 
 
-# Database
+# Database－預設使用splite3
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
@@ -126,9 +126,14 @@ USE_TZ = True
 STATIC_URL = 'static/'
 # 這個設定指定了在網頁中引用靜態文件時的 URL 前綴。當你在模板或者視圖中引用靜態文件時，Django 會使用這個設定來生成 URL。例如，如果你有一個名為 styles.css 的靜態文件，你可以在模板中使用 {% static 'styles.css' %} 來生成對應的 URL，它可能是 /static/styles.css。
 MEDIA_URL ='media/'
-# 這個設定類似於 STATIC_URL，但用於媒體文件。媒體文件通常是使用者上傳的文件，如圖片、影片等。同樣地，當你在模板或者視圖中引用媒體文件時，Django 會使用這個設定來生成 URL。例如，如果你有一個用戶上傳的圖片叫做 avatar.jpg，你可以在模板中使用 {% media 'avatar.jpg' %} 來生成對應的 URL，它可能是 /media/avatar.jpg。
+# 這個設定類似於 STATIC_URL，但用於媒體文件。媒體文件通常是使用者上傳的文件，如圖片、影片等。
+# 同樣地，當你在模板或者視圖中引用媒體文件時，Django 會使用這個設定來生成 URL。
+# 例如，如果你有一個用戶上傳的圖片叫做 avatar.jpg，你可以在模板中使用 {% media 'avatar.jpg' %} 來生成對應的 URL，它可能是 /media/avatar.jpg。
 MEDIA_ROOT = BASE_DIR /'media'
-# 指定了媒體文件的存儲路徑。BASE_DIR 是你 Django 專案的根目錄，這個設定告訴 Django 媒體文件應該存儲在哪個目錄下。在這個例子中，媒體文件被存儲在根目錄下的 media 子目錄中。當使用者上傳媒體文件時，Django 將把它們保存到這個目錄下。
+# 指定了媒體文件的存儲路徑。BASE_DIR 是你 Django 專案的根目錄，
+# 這個設定告訴 Django 媒體文件應該存儲在哪個目錄下。
+# 在這個例子中，媒體文件被存儲在根目錄下的 media 子目錄中。
+# 當使用者上傳媒體文件時，Django 將把它們保存到這個目錄下。
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

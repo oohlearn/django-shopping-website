@@ -23,7 +23,8 @@ def new(request):
         form = NewItemForm(request.POST, request.FILES)
         if form.is_valid():
             item = form.save(commit=False)
-            # 先存成一個物件，重點是要設定commit為false，不然會出錯
+            # 先暫存成一個物件，重點是要設定commit為false，不然會出錯，
+            # 然後就可以再執行一些後續操作
             item.created_by = request.user
             item.save()
             return redirect("item:detail", pk=item.id)

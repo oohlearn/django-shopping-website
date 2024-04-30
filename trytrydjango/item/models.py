@@ -31,6 +31,13 @@ class Item(models.Model):
     class Meta:
         ordering = ("name",)
         verbose_name_plural = "categories"
+        # 這行程式碼 verbose_name_plural = "categories" 是在 Item 模型的內部 Meta class 中定義的。
+        # 這是一個特殊的類，用於存放模型的一些元資料，例如模型的順序、命名、以及其他一些配置選項。
+        # verbose_name_plural 屬性用於指定模型的複數名稱。
+        # 當Django需要顯示模型的複數名稱時，它將使用這個屬性的值。
+        # 在這個例子中，verbose_name_plural 被設置為 "categories"，
+        # 這意味著當Django需要引用 Item 模型的複數名稱時，它將使用 "categories"。
+        # 例如，當您在管理介面中查看 Item 模型時，Django 將會使用 verbose_name_plural 的值來標題該模型的列表。
 
     def __str__(self):
         return self.name

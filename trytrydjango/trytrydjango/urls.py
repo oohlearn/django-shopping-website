@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path("", include("core.urls")),
-    path("items/", include("item.urls")),  #引入items裡面的urls.py
+    path("items/", include("item.urls")),  #引入items裡面的urls.py，就不用從views一個個import def
     path('admin/', admin.site.urls),
     path("dashboard/", include("dashboard.urls")),
     path("inbox/", include("conversation.urls"))
